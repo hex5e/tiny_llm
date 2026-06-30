@@ -17,5 +17,5 @@ for row in ds:
 
 corpus = "\n\n".join(texts)
 
-with open("tinystories_roughly_1m_tokens.txt", "w", encoding="utf-8") as f:
+with open("../data/tinystories_roughly_1m_tokens.txt", "w", encoding="utf-8") as f:
     f.write(corpus)

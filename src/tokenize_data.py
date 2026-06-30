@@ -7,8 +7,8 @@ import numpy as np
 import tiktoken
 
 EOT = "<|endoftext|>"
-INPUT_FILE_PATH = "tinystories_roughly_1m_tokens.txt"
-OUTPUT_FILE_PATH = "tinystories_tokens.npy"
+INPUT_FILE_PATH = "../data/tinystories_roughly_1m_tokens.txt"
+OUTPUT_FILE_PATH = "../data/tinystories_tokens.npy"
 ENCODING = "gpt2"
 
 

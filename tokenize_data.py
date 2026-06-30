@@ -1,17 +1,3 @@
-"""
-tokenize_data.py
-
-Tokenize a raw TinyStories-style text corpus into a flat array of token IDs.
-
-The corpus uses the GPT-2 special token <|endoftext|> as a document separator,
-so we tokenize with tiktoken's GPT-2 BPE encoding and emit that single token id
-(50256) at each boundary instead of splitting the literal string into ordinary
-sub-word pieces.
-
-Output: a 1-D numpy array of token ids saved as .npy next to the input file.
-Run:    python tokenize_data.py
-"""
-
 from __future__ import annotations
 
 import argparse
@@ -21,6 +7,9 @@ import numpy as np
 import tiktoken
 
 EOT = "<|endoftext|>"
+INPUT_FILE_PATH = "tinystories_roughly_1m_tokens.txt"
+OUTPUT_FILE_PATH = "tinystories_tokens.npy"
+ENCODING = "gpt2"
 
 
 def tokenize_file(input_path: Path, output_path: Path, encoding_name: str = "gpt2") -> np.ndarray:
@@ -50,11 +39,5 @@ def tokenize_file(input_path: Path, output_path: Path, encoding_name: str = "gpt
 
 
 if __name__ == "__main__":
-    here = Path(__file__).resolve().parent
-    parser = argparse.ArgumentParser(description="Tokenize a raw text corpus into token ids.")
-    parser.add_argument("--input", type=Path, default=here / "tinystories_roughly_1m_tokens.txt")
-    parser.add_argument("--output", type=Path, default=here / "tinystories_tokens.npy")
-    parser.add_argument("--encoding", default="gpt2", help="tiktoken encoding name (gpt2, cl100k_base, o200k_base)")
-    args = parser.parse_args()
 
-    tokenize_file(args.input, args.output, args.encoding)
+    tokenize_file(Path(INPUT_FILE_PATH), Path(OUTPUT_FILE_PATH), ENCODING)

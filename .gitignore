@@ -1,2 +1,3 @@
 TinyStories-train.txt
 tinystories_roughly_1m_tokens.txt
+tinystories_tokens.npy

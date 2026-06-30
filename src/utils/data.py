@@ -57,3 +57,10 @@ def get_batch(
     x = torch.stack([data[i : i + block_size] for i in ix])
     y = torch.stack([data[i + 1 : i + 1 + block_size] for i in ix])
     return x.to(device), y.to(device)
+
+if __name__ == "__main__":
+    print(f"SRC_DIR: {SRC_DIR}")
+    print(f"PROJECT_ROOT: {PROJECT_ROOT}")
+    print(f"DATA_DIR: {DATA_DIR}")
+    print(f"CKPT_DIR: {CKPT_DIR}")
+    print(f"DEFAULT_TOKENS: {DEFAULT_TOKENS}")
